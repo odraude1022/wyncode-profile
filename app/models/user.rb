@@ -35,4 +35,8 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
+  scope :search,    ->  (term) { where("first_name ilike ? OR last_name ilike ?" , "%#{term}%", "%#{term}%") }
+  scope :cohort_search, -> (c) {where("cohort = ?", "#{c}")}
+  scope :ordered,   ->  { order(cohort: :desc) }
+
 end
