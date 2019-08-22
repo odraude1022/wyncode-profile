@@ -1,0 +1,31 @@
+<% provide(:title, 'Sign up') %>
+<h1 class="title">Sign up</h1>
+
+<div class="row form-group">
+  <div class="col-md-6 col-md-offset-3 m-3">
+    <%= form_for(@user) do |f| %>
+
+      <%= f.label :first_name, class: "mt-3" %>
+      <%= f.text_field :first_name, class: "form-control" %>
+
+      <%= f.label :last_name, class: "mt-3" %>
+      <%= f.text_field :last_name, class: "form-control" %>
+
+      <%= f.label :email, class: "mt-3" %>
+      <%= f.email_field :email, class: "form-control" %>
+
+      <%= f.label :cohort, class: "mt-3" %>
+      <%= f.number_field :cohort, class: "form-control" %>
+
+
+      <%= f.label :password, class: "mt-3" %>
+      <%= f.password_field :password, class: "form-control" %>
+
+      <%= f.label :password_confirmation, "Confirmation", class: "mt-3" %>
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+
+      <%= f.submit "Create my profile", class: "btn btn-success btn-lg btn-block mt-3 mb-3" %>
+
+    <% end %>
+  </div>
+</div>
