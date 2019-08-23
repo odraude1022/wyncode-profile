@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit]
   def new
     @user = User.new
   end
@@ -23,6 +24,19 @@ class UsersController < ApplicationController
   end
 
   def show
+    set_user
+  end
+
+  def edit
+  end
+
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      redirect_to @user, notice: "Successfully updated profile"
+    else
+      redirect_to edit_user_path, alert: @user.errors.full_messages.to_sentence
+    end
   end
 
   private
