@@ -14,6 +14,12 @@ class UsersController < ApplicationController
   end
 
   def index
+    set_users
+    respond_to do |format|
+      format.json do
+        render json: { users: @users }
+      end
+    end
   end
 
   def show
@@ -23,6 +29,16 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def set_users
+    @users = User.all.ordered
+    if(params[:term] && params[:term] != '' && params[:term] != 'undefined')
+      @users = @users.search(params[:term])
+    end
+    if(params[:cohort] && params[:cohort] != '' && params[:cohort] != 'undefined')
+      @users = @users.cohort_search(params[:cohort].to_i)
+    end
   end
 
   def user_params

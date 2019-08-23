@@ -39,4 +39,15 @@ class User < ApplicationRecord
   scope :cohort_search, -> (c) {where("cohort = ?", "#{c}")}
   scope :ordered,   ->  { order(cohort: :desc) }
 
+  def as_json(options={})
+    {
+      id:                   id,
+      first_name:           first_name,
+      last_name:            last_name,
+      email:                email,
+      cohort:               cohort,
+      location:             "/users/#{id}"
+    }
+  end
+
 end
