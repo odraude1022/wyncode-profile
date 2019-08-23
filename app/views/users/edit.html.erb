@@ -18,4 +18,9 @@
 
     <% end %>
   </div>
+  <%= link_to 'Delete My Profile',
+        @user,
+        method: :delete,
+        data: { confirm: 'Are you sure?' },
+        class: "btn btn-danger btn-sm" %>
 </div>

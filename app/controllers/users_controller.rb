@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit]
+  before_action :set_user, only: [:show, :edit, :destroy]
   def new
     @user = User.new
   end
@@ -36,6 +36,13 @@ class UsersController < ApplicationController
       redirect_to @user, notice: "Successfully updated profile"
     else
       redirect_to edit_user_path, alert: @user.errors.full_messages.to_sentence
+    end
+  end
+
+  def destroy
+    if @user == current_user
+      @user.destroy
+      redirect_to root_path
     end
   end
 

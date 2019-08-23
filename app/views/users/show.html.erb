@@ -3,5 +3,5 @@
 <p>Email: <%=@user.email%></p>
 
 <% if @user == current_user %>
-  <%= link_to "edit", edit_user_path %>
+  <%= link_to "Edit Profile", edit_user_path %>
 <% end %>
