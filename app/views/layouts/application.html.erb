@@ -17,8 +17,10 @@
     <% if alert %>
         <%= alert %>
     <% end %>
+    <%= link_to "Home", root_path %>
     <% if user_logged_in? %>
       <%= link_to "Log out", logout_path, method: :delete %>
+      <%= link_to "Profile", current_user %>
     <% else %>
       <%= link_to "Log in", login_path %>
       <%= link_to "User Sign up", new_user_path %>
