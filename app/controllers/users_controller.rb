@@ -28,6 +28,9 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if @user != current_user
+      redirect_to root_path
+    end
   end
 
   def update
@@ -42,8 +45,8 @@ class UsersController < ApplicationController
   def destroy
     if @user == current_user
       @user.destroy
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 
   private
