@@ -46,23 +46,25 @@ export default class Users extends Component {
     let {query, cohort, users} = this.state
     console.log(users)
     return(
-      <div>
-        <h1>Find Wyncode Graduates!</h1>
-        <Search
-          query={query}
-          cohort={cohort}
-          handleQueryChange={this.handleQueryChange}
-          handleCohortChange={this.handleCohortChange}
-        />
-        <ul className="userList">
-          {
-            users.map(user => {
-              return(
-              <User  key={user.id} user={user}/>
-              )
-            })
-          }
-        </ul>
+      <div className="wrapper">
+        <div className="users">
+          <h1>Find Wyncode Graduates!</h1>
+          <Search
+            query={query}
+            cohort={cohort}
+            handleQueryChange={this.handleQueryChange}
+            handleCohortChange={this.handleCohortChange}
+          />
+          <ul className="userList">
+            {
+              users.map(user => {
+                return(
+                <User  key={user.id} user={user}/>
+                )
+              })
+            }
+          </ul>
+        </div>
       </div>
 
     )

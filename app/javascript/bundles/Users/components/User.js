@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 const User = props => {
   let {user} = props
   return(
-    <li>
+    <li className="user">
       <a href={user.location}>{user.first_name} {user.last_name}</a>
-      <p>{user.cohort}</p>
+      <p>C{user.cohort}</p>
     </li>
   )
 }
