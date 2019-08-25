@@ -13,6 +13,7 @@ const Search = props => {
       <input
           autoComplete="off"
           type="text"
+          placeholder="Filter by Cohort"
           value={props.cohort}
           onChange={props.handleCohortChange}
       />
