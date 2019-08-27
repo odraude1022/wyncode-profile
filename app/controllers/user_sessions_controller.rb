@@ -7,9 +7,23 @@ class UserSessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       user_log_in user
       params[:session][:remember_me] == '1' ? user_remember(user) : user_forget(user)
-      redirect_to user
+      respond_to do |format|
+        format.html do
+          redirect_to user
+        end
+        format.json do
+          render json: { user: user }
+        end
+      end
     else
-      redirect_to login_path, alert: "Invalid email/password"
+      respond_to do |format|
+        format.html do
+          redirect_to login_path, alert: "Invalid email/password"
+        end
+        format.json do
+          render json: { error: "Invalid email/password" }, status: 422
+        end
+      end
     end
   end
 
