@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 const User = props => {
   const {user, current_user} = props
