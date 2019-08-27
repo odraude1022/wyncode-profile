@@ -44,7 +44,6 @@ export default class Users extends Component {
 
   render(){
     let {query, cohort, users} = this.state
-    console.log(users)
     return(
       <div className="wrapper">
         <div className="users">

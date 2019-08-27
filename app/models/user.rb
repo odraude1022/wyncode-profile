@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_accessor :remember_token
   has_secure_password
   validates :password, length: { minimum: 6 }, allow_nil: true
   validates :first_name, presence: true

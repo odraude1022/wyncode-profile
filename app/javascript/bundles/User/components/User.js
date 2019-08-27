@@ -3,8 +3,8 @@ import React from 'react'
 const User = props => {
   const {user, current_user} = props
   return(
-    <div class="wrapper">
-      <div class="user-info">
+    <div className="wrapper">
+      <div className="user-info">
         <h1>{user.first_name} {user.last_name}</h1>
         <h2>C{user.cohort}</h2>
         <p>Email: {user.email}</p>
