@@ -8,9 +8,24 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       user_log_in @user
-      redirect_to @user
+      respond_to do |format|
+        format.html do
+          redirect_to @user
+        end
+        format.json do
+          render json: @user
+        end
+      end
     else
-      redirect_to new_user_path, alert: @user.errors.full_messages.to_sentence
+      respond_to do |format|
+        format.html do
+          redirect_to new_user_path,
+          alert: @user.errors.full_messages.to_sentence
+        end
+        format.json do
+          render json: { errors: @user.errors.full_messages }, status: 422
+        end
+      end
     end
   end
 
