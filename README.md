@@ -1,24 +1,14 @@
-# README
+# Wyncode Profile
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### What is Wyncode Profile
+Wyncode Profile is a way for Wyncode graduates to create a profile with relevant information so that potential employers can search them.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+###Installation
+ clone the repository, run ```bundle```, ```yarn install```, and ```rails db:migrate```
+ 
+ run ```rails s``` to start the server
+ 
+ ###Future Additions
+ 
+ - Add the ability for users to select which skills they have and then be able to search and filter by certain skills
+ - Have admin users who are able to select a group of users and send their profile data to potential employers
