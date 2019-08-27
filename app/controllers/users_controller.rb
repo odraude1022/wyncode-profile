@@ -32,6 +32,8 @@ class UsersController < ApplicationController
   def index
     set_users
     respond_to do |format|
+      format.html do
+      end
       format.json do
         render json: { users: @users }
       end
