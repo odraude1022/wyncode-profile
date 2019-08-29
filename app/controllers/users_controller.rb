@@ -51,11 +51,25 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
-    if @user.update(user_params)
-      redirect_to @user, notice: "Successfully updated profile"
-    else
-      redirect_to edit_user_path, alert: @user.errors.full_messages.to_sentence
+    @user = User.find(params[:id])
+    if @user != current_user
+      redirect_to root_path
+    end
+    respond_to do |format|
+      format.html do
+        if @user.update(user_params)
+          redirect_to @user, notice: "Successfully updated profile"
+        else
+          redirect_to edit_user_path, alert: @user.errors.full_messages.to_sentence
+        end
+      end
+      format.json do
+        if @user.update(user_params)
+          render json: @user
+        else
+          render json: { errors: @user.errors.full_messages }, status: 422
+        end
+      end
     end
   end
 
