@@ -4,6 +4,7 @@ import Users from '../bundles/Users/components/Users';
 import User from '../bundles/User/components/User'
 import Signup from '../bundles/Signup/components/Signup'
 import Login from '../bundles/Login/components/Login'
+import Edit from '../bundles/Edit/components/Edit'
 
 // This is how react_on_rails can see the Tasks in the browser.
 ReactOnRails.register({
@@ -11,4 +12,5 @@ ReactOnRails.register({
   User,
   Signup,
   Login,
+  Edit,
 });
